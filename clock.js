@@ -1,6 +1,6 @@
 const clockContainer = document.querySelector(".js-clock"),
   clockTitle = clockContainer.querySelector("h1"),
-  Server = clockContainer.querySelector("h2");
+  Server = clockContainer.querySelector("h3");
 
 function getURL()
 {
