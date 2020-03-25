@@ -2,12 +2,13 @@ const clockContainer = document.querySelector(".js-clock"),
   clockTitle = clockContainer.querySelector("h1"),
   Server = clockContainer.querySelector("h2");
 
-function getServerTime()
+function getURL()
 {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         let link = tabs[0].url;
         Server.innerText = `${link}`;
-        $.ajax({
+/*
+          $.ajax({
             url: link,
             dataType: 'jsonp',
             type:"GET",
@@ -16,6 +17,7 @@ function getServerTime()
                 console.log('ajax', data);
             }
           });
+*/
      });
 }
 
@@ -25,10 +27,11 @@ function getTime() {
   const hours = date.getHours();
   const seconds = date.getSeconds();
 
-  clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+  clockTitle.innerText = 
+  `${hours < 12 ? `오전` : `오후`} ${hours%12 === 0 ? `12` : hours%12 < 10 ? `0${hours%12}` : hours%12}:${
     minutes < 10 ? `0${minutes}` : minutes
   }:${seconds < 10 ? `0${seconds}` : seconds}`;
-  getServerTime();
+  getURL();
 }
 
 function init() {

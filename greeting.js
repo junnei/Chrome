@@ -5,6 +5,15 @@ const form = document.querySelector(".js-form"),
 const USER_LS = "currentUser",
   SHOWING_CN = "showing";
 
+function deleteName(event) {
+  const btn = event.target;
+  greeting.removeChild(btn);
+  greeting.classList.remove(SHOWING_CN);
+  const currentUser = localStorage.getItem(USER_LS);
+  localStorage.removeItem(USER_LS, currentUser);
+  loadName();
+}
+
 function saveName(text) {
   localStorage.setItem(USER_LS, text);
 }
@@ -25,6 +34,10 @@ function paintGreeting(text) {
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
   greeting.innerText = `Hello ${text}`;
+  const delBtn = document.createElement("button");
+  delBtn.innerText = "❌";
+  delBtn.addEventListener("click", deleteName);
+  greeting.appendChild(delBtn);
 }
 
 function loadName() {
