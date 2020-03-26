@@ -5,8 +5,8 @@ const clockContainer = document.querySelector(".js-clock"),
 function getURL()
 {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-        let link = tabs[0].url;
-        Server.innerText = `${link}`;
+        let url = tabs[0].url;
+        Server.innerText = `${url}`;
 /*
           $.ajax({
             url: link,
