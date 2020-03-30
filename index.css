@@ -7,7 +7,7 @@ body {
     cursor: pointer;
   }
   body {
-    color: #2D3047;
+    color: rgb(220, 221, 235);
   }
   
   .clicked {
