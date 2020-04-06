@@ -1,6 +1,6 @@
 {
-  "name": "Time Checker Popup",
-  "description": "Time Checker",
+  "name": "Time Checker",
+  "description": "Time Checker Chrome App",
   "version": "1.0",
   "manifest_version": 2,
   "permissions": ["https://*/", "alarms", "notifications", "storage", "tabs"],
